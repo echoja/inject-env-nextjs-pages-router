@@ -34,12 +34,14 @@ export default function Home() {
             height={38}
             priority
           />
-          <ol>
+          <ul>
             <li>
-              Get started by editing <code>pages/index.tsx</code>.
+              <code>window.NODE_ENV</code> is set to:{" "}
+              <span className={styles.nodeEnv}>
+                {process.env.NODE_ENV || "development"}
+              </span>
             </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
+          </ul>
 
           <div className={styles.ctas}>
             <a

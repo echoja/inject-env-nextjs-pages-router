@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { getApiEndpoint as getApiEndpoint } from "@/lib/config";
 import { ShowBrowserApiEndpoint } from "@/components/ShowBroswerApiEndpoint";
+import { GetServerSideProps } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function Home() {
+interface HomeProps {
+  apiEndpoint?: string;
+}
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  return {
+    props: {
+      apiEndpoint: getApiEndpoint(),
+    },
+  };
+};
+
+export default function Home({
+  apiEndpoint, // This will be used if needed in the future
+}: HomeProps) {
   return (
     <>
       <Head>
@@ -30,7 +45,7 @@ export default function Home() {
           <ul>
             <li>
               <code>API_ENDPOINT</code> is set to:{" "}
-              <span className={styles.apiEndpoint}>{getApiEndpoint()}</span>
+              <span className={styles.apiEndpoint}>{apiEndpoint}</span>
             </li>
           </ul>
           <ShowBrowserApiEndpoint />

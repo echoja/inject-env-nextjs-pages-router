@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:local-docker": "docker build --force-rm=true -t inject-env-page-router .",
+    "start:local-docker": "docker run -p 3000:3000 --rm -it inject-env-page-router"
   },
   "dependencies": {
     "react": "19.1.0",

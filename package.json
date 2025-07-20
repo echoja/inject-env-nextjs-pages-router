@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "build:local-docker": "docker build --force-rm=true -t inject-env-page-router .",
-    "start:local-docker": "docker run -p 3000:3000 --rm -it inject-env-page-router"
+    "start:local-docker": "docker run -p 3000:3000 --rm -it -e API_ENDPOINT=https://jsonplaceholder.typicode.com inject-env-page-router"
   },
   "dependencies": {
     "next": "15.4.2",

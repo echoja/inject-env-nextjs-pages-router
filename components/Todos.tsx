@@ -17,6 +17,5 @@ export function Todo({ id }: { id: string }) {
     return <div>loading...</div>;
   }
 
-  // 데이터 렌더링
   return <div>title: {data.title ?? "NO_DATA"}</div>;
 }

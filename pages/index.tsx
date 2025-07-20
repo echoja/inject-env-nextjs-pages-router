@@ -1,9 +1,7 @@
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { getApiEndpoint as getApiEndpoint } from "@/lib/config";
-import { ShowBrowserApiEndpoint } from "@/components/ShowBroswerApiEndpoint";
-import { GetServerSideProps } from "next";
+import { Todo } from "@/components/Todos";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,21 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-interface HomeProps {
-  apiEndpoint?: string;
-}
-
-export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  return {
-    props: {
-      apiEndpoint: getApiEndpoint(),
-    },
-  };
-};
-
-export default function Home({
-  apiEndpoint, // This will be used if needed in the future
-}: HomeProps) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -42,13 +26,7 @@ export default function Home({
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <main className={styles.main}>
-          <ul>
-            <li>
-              <code>API_ENDPOINT</code> is set to:{" "}
-              <span className={styles.apiEndpoint}>{apiEndpoint}</span>
-            </li>
-          </ul>
-          <ShowBrowserApiEndpoint />
+          <Todo id="1" />
         </main>
       </div>
     </>

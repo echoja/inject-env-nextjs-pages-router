@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { getNodeEnv } from "@/lib/config";
-import { ShowBrowserNodeEnv } from "@/components/ShowBroswerNodeEnv";
+import { getApiEndpoint as getApiEndpoint } from "@/lib/config";
+import { ShowBrowserApiEndpoint } from "@/components/ShowBroswerApiEndpoint";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,13 +29,11 @@ export default function Home() {
         <main className={styles.main}>
           <ul>
             <li>
-              <code>NODE_ENV</code> is set to:{" "}
-              <span className={styles.nodeEnv}>
-                {getNodeEnv()}
-              </span>
+              <code>API_ENDPOINT</code> is set to:{" "}
+              <span className={styles.apiEndpoint}>{getApiEndpoint()}</span>
             </li>
           </ul>
-          <ShowBrowserNodeEnv />
+          <ShowBrowserApiEndpoint />
         </main>
       </div>
     </>

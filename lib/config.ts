@@ -1,11 +1,11 @@
 declare global {
   interface Window {
-    NODE_ENV?: string;
+    API_ENDPOINT?: string;
   }
 }
 
-export const getNodeEnv = () => {
+export const getApiEndpoint = () => {
   return typeof window === "undefined"
-    ? process.env.NODE_ENV || "development"
-    : window.NODE_ENV || "development";
+    ? process.env.API_ENDPOINT || "development"
+    : window.API_ENDPOINT || "development";
 };

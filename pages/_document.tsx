@@ -7,7 +7,7 @@ export default function Document() {
         <script dangerouslySetInnerHTML={{
           __html: `
 console.log('This script runs on the server side and is injected into the head of the document.');
-window.NODE_ENV = "${process.env.NODE_ENV || 'development'}";`
+window.API_ENDPOINT = "${process.env.API_ENDPOINT}";`
         }} />
         </Head>
       <body>

@@ -4,7 +4,7 @@ declare global {
   }
 }
 
-export const getApiEndpoint = () => {
+export const getAPIEndpoint = () => {
   return typeof window === "undefined"
     ? process.env.API_ENDPOINT
     : window.API_ENDPOINT;

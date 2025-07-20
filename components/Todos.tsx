@@ -1,4 +1,4 @@
-import { getApiEndpoint } from "@/lib/config";
+import { getAPIEndpoint } from "@/lib/config";
 import useSWR from "swr";
 
 const fetcher = (...args: Parameters<typeof fetch>) =>
@@ -6,7 +6,7 @@ const fetcher = (...args: Parameters<typeof fetch>) =>
 
 export function Todo({ id }: { id: string }) {
   const { data, error, isLoading } = useSWR(
-    `${getApiEndpoint()}/todos/${id}`,
+    `${getAPIEndpoint()}/todos/${id}`,
     fetcher
   );
 

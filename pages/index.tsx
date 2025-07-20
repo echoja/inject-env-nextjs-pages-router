@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import { getNodeEnv } from "@/lib/config";
+import { ShowBrowserNodeEnv } from "@/components/ShowBroswerNodeEnv";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,12 +30,13 @@ export default function Home() {
         <main className={styles.main}>
           <ul>
             <li>
-              <code>window.NODE_ENV</code> is set to:{" "}
+              <code>NODE_ENV</code> is set to:{" "}
               <span className={styles.nodeEnv}>
-                {process.env.NODE_ENV || "development"}
+                {getNodeEnv()}
               </span>
             </li>
           </ul>
+          <ShowBrowserNodeEnv />
         </main>
       </div>
     </>

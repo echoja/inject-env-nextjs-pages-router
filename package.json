@@ -1,5 +1,5 @@
 {
-  "name": "inject-env-page-router",
+  "name": "inject-env-nextjs-pages-router",
   "version": "0.1.0",
   "private": true,
   "scripts": {
